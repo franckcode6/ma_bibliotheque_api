@@ -1,7 +1,12 @@
 package fr.humanbooster.ma_bibliotheque.service.impl;
 
-import fr.humanbooster.ma_bibliotheque.service.EditeurService;
+import org.springframework.stereotype.Service;
 
+import fr.humanbooster.ma_bibliotheque.service.EditeurService;
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
 public class EditeurServiceImpl implements EditeurService {
 
 }

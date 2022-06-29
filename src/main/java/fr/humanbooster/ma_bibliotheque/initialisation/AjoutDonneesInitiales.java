@@ -18,7 +18,6 @@ import fr.humanbooster.ma_bibliotheque.business.Editeur;
 import fr.humanbooster.ma_bibliotheque.business.Lecteur;
 import fr.humanbooster.ma_bibliotheque.business.Livre;
 import fr.humanbooster.ma_bibliotheque.business.Type;
-import fr.humanbooster.ma_bibliotheque.business.Utilisateur;
 import fr.humanbooster.ma_bibliotheque.dao.AdminDao;
 import fr.humanbooster.ma_bibliotheque.dao.AuteurDao;
 import fr.humanbooster.ma_bibliotheque.dao.CategorieDao;
@@ -26,7 +25,6 @@ import fr.humanbooster.ma_bibliotheque.dao.EditeurDao;
 import fr.humanbooster.ma_bibliotheque.dao.LecteurDao;
 import fr.humanbooster.ma_bibliotheque.dao.LivreDao;
 import fr.humanbooster.ma_bibliotheque.dao.TypeDao;
-import fr.humanbooster.ma_bibliotheque.dao.UtilisateurDao;
 import lombok.AllArgsConstructor;
 
 @Component
@@ -52,7 +50,6 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 	private List<Lecteur> lecteurs;
 	private List<Livre> livres;
 	private List<Type> types;
-	private List<Utilisateur> utilisateurs;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -80,7 +77,6 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 		ajouterLivres();
 		Date dateFin = new Date();
 		System.out.println("Données initiales générées en " + (dateFin.getTime() - dateDebut.getTime()) + " ms");
-
 	}
 
 	private void ajouterAuteurs() {
