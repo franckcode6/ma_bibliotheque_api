@@ -49,6 +49,10 @@ public class Livre {
 	@NotNull
 	@ManyToOne
 	private Categorie categorie;
+	
+	@NotNull
+	@ManyToOne
+	private Utilisateur utilisateur;
 
 	public Livre(String titre, String isbn, LocalDate dateDeParution, Type type, Editeur editeur, Auteur auteur,
 			Categorie categorie) {

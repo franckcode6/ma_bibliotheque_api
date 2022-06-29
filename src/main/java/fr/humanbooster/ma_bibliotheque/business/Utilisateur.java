@@ -46,7 +46,7 @@ public class Utilisateur {
 	protected String motDePasse;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "livre", cascade = CascadeType.REMOVE)
+	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.REMOVE)
 	private List<Livre> livres;
 
 	public Utilisateur(String nom, String prenom, String email, String motDePasse) {

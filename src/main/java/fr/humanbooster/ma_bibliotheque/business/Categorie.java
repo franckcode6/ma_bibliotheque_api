@@ -23,13 +23,17 @@ public class Categorie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	private Long id;
 
 	@NotBlank
-    private String nom;
+	private String nom;
 
 	@JsonBackReference
 	@OneToMany(mappedBy = "categorie")
-    private List<Livre> livres;
+	private List<Livre> livres;
+
+	public Categorie(String nom) {
+		this.nom = nom;
+	}
 
 }

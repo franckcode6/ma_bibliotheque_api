@@ -23,13 +23,17 @@ public class Editeur {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	private Long id;
 
 	@NotBlank
-    private String nom;
+	private String nom;
 
 	@JsonBackReference
 	@OneToMany(mappedBy = "editeur")
-    private List<Livre> livres;
+	private List<Livre> livres;
+
+	public Editeur(String nom) {
+		this.nom = nom;
+	}
 
 }

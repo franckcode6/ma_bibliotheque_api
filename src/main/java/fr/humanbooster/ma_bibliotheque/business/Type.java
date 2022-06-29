@@ -32,4 +32,7 @@ public class Type {
 	@OneToMany(mappedBy = "type")
 	private Set<Livre> livres;
 
+	public Type(String nom) {
+		this.nom = nom;
+	}
 }
