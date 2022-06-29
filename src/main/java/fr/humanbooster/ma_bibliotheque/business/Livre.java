@@ -30,7 +30,7 @@ public class Livre {
 
 	private String isbn;
 
-	@NotBlank
+	@NotNull
 	@Past
 	private LocalDate dateDeParution;
 
@@ -50,12 +50,11 @@ public class Livre {
 	@ManyToOne
 	private Categorie categorie;
 	
-	@NotNull
 	@ManyToOne
 	private Utilisateur utilisateur;
 
 	public Livre(String titre, String isbn, LocalDate dateDeParution, Type type, Editeur editeur, Auteur auteur,
-			Categorie categorie) {
+			Categorie categorie, Utilisateur utilisateur) {
 		this();
 		this.titre = titre;
 		this.isbn = isbn;
@@ -64,6 +63,7 @@ public class Livre {
 		this.editeur = editeur;
 		this.auteur = auteur;
 		this.categorie = categorie;
+		this.utilisateur = utilisateur;
 
 	}
 }

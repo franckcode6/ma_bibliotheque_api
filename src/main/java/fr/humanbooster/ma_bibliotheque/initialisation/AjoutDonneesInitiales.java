@@ -52,6 +52,7 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 	private List<Lecteur> lecteurs;
 	private List<Livre> livres;
 	private List<Type> types;
+	private List<Utilisateur> utilisateurs;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -68,13 +69,15 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 
 		// EDITEURS
 		ajouterEditeurs();
-		
-		//LECTEURS
+
+		// LECTEURS
 		ajouterLecteurs();
 
 		// TYPES
 		ajouterTypes();
 
+		// LIVRES
+		ajouterLivres();
 		Date dateFin = new Date();
 		System.out.println("Données initiales générées en " + (dateFin.getTime() - dateDebut.getTime()) + " ms");
 
@@ -155,8 +158,22 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 				lecteurs.add(new Lecteur(faker.name().lastName(), faker.name().firstName(),
 						faker.internet().emailAddress(), "12345",
 						faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()));
+
 			}
 			lecteurDao.saveAll(lecteurs);
+		}
+	}
+
+	private void ajouterLivres() {
+		if (livreDao.count() == 0) {
+			for (int i = 0; i < 200; i++) {
+				livres.add(new Livre("titre " + i, "1234567891234",
+						faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
+						types.get(random.nextInt(types.size())), editeurs.get(random.nextInt(editeurs.size())),
+						auteurs.get(random.nextInt(auteurs.size())), categories.get(random.nextInt(categories.size())),
+						lecteurs.get(random.nextInt(lecteurs.size()))));
+			}
+			livreDao.saveAll(livres);
 		}
 	}
 }
