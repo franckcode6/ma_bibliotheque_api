@@ -44,7 +44,6 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 	private final LecteurDao lecteurDao;
 	private final LivreDao livreDao;
 	private final TypeDao typeDao;
-	private final UtilisateurDao utilisateurDao;
 
 	private List<Admin> admins;
 	private List<Auteur> auteurs;
@@ -53,20 +52,25 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 	private List<Lecteur> lecteurs;
 	private List<Livre> livres;
 	private List<Type> types;
-	private List<Utilisateur> utilisateurs;
 
 	@Override
 	public void run(String... args) throws Exception {
 		Date dateDebut = new Date();
+
+		// ADMINS
+		ajouterAdmins();
 
 		// AUTEURS
 		ajouterAuteurs();
 
 		// CATEGORIES
 		ajouterCategories();
-		
-		//EDITEURS
+
+		// EDITEURS
 		ajouterEditeurs();
+		
+		//LECTEURS
+		ajouterLecteurs();
 
 		// TYPES
 		ajouterTypes();
@@ -86,7 +90,7 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 					faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), "Russie"));
 			auteurs.add(new Auteur("Roth", "Philip",
 					faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), "USA"));
-			for (int i = 0; i < 20; i++) {
+			for (int i = 0; i < 50; i++) {
 				auteurs.add(new Auteur(faker.name().lastName(), faker.name().firstName(),
 						faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate(), "France"));
 			}
@@ -111,7 +115,7 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 			categorieDao.saveAll(categories);
 		}
 	}
-	
+
 	private void ajouterEditeurs() {
 		if (editeurDao.count() == 0) {
 			editeurs.add(new Editeur("Albin Michel"));
@@ -134,6 +138,25 @@ public class AjoutDonneesInitiales implements CommandLineRunner {
 			types.add(new Type("Autre"));
 			types.add(new Type("Revue"));
 			typeDao.saveAll(types);
+		}
+	}
+
+	private void ajouterAdmins() {
+		if (adminDao.count() == 0) {
+			admins.add(new Admin("admin", "admin", "admin@hb.com", "12345", "0102030405"));
+			admins.add(new Admin("Franck", "Quasevi", "franck@hb.com", "12345", "0102030405"));
+			adminDao.saveAll(admins);
+		}
+	}
+
+	private void ajouterLecteurs() {
+		if (lecteurDao.count() == 0) {
+			for (int i = 0; i < 100; i++) {
+				lecteurs.add(new Lecteur(faker.name().lastName(), faker.name().firstName(),
+						faker.internet().emailAddress(), "12345",
+						faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).toLocalDate()));
+			}
+			lecteurDao.saveAll(lecteurs);
 		}
 	}
 }

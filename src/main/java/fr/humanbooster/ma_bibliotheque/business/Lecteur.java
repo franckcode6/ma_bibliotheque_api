@@ -3,7 +3,7 @@ package fr.humanbooster.ma_bibliotheque.business;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -19,7 +19,7 @@ import lombok.Setter;
 @EqualsAndHashCode(callSuper = true)
 public class Lecteur extends Utilisateur {
 
-	@NotBlank
+	@NotNull
 	private LocalDate dateDeNaissance;
 
 	public Lecteur(String nom, String prenom, String email, String motDePasse, LocalDate dateDeNaissance) {

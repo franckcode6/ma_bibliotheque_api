@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -37,7 +36,6 @@ public class Utilisateur {
 	@NotBlank
 	protected String prenom;
 
-	@Email
 	@NotBlank
 	protected String email;
 
