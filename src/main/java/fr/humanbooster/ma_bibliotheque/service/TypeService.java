@@ -8,4 +8,6 @@ public interface TypeService {
 
 	List<Type> recupererTypes();
 
+	Type recupererType(Long id);
+
 }

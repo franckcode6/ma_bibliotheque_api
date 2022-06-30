@@ -19,4 +19,9 @@ public class TypeServiceImpl implements TypeService {
 		return typeDao.findAll();
 	}
 
+	@Override
+	public Type recupererType(Long id) {
+		return typeDao.findById(id).orElse(null);
+	}
+
 }

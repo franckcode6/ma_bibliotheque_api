@@ -8,4 +8,6 @@ public interface AuteurService {
 
 	List<Auteur> recupererAuteurs();
 
+	Auteur recupererAuteur(Long id);
+
 }

@@ -19,4 +19,9 @@ public class CategorieServiceImpl implements CategorieService {
 		return categorieDao.findAll();
 	}
 
+	@Override
+	public Categorie recupererCategorie(Long id) {
+		return categorieDao.findById(id).orElse(null);
+	}
+
 }

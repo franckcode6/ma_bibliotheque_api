@@ -8,4 +8,6 @@ public interface CategorieService {
 
 	List<Categorie> recupererCategories();
 
+	Categorie recupererCategorie(Long id);
+
 }

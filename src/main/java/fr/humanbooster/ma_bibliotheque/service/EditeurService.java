@@ -8,4 +8,6 @@ public interface EditeurService {
 
 	List<Editeur> recupererEditeurs();
 
+	Editeur recupererEditeur(Long id);
+
 }

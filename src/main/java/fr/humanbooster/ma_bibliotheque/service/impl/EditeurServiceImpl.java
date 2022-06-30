@@ -20,4 +20,9 @@ public class EditeurServiceImpl implements EditeurService {
 		return editeurDao.findAll();
 	}
 
+	@Override
+	public Editeur recupererEditeur(Long id) {
+		return editeurDao.findById(id).orElse(null);
+	}
+
 }

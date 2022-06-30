@@ -19,4 +19,9 @@ public class AuteurServiceImpl implements AuteurService {
 		return auteurDao.findAll();
 	}
 
+	@Override
+	public Auteur recupererAuteur(Long id) {
+		return auteurDao.findById(id).orElse(null);
+	}
+
 }
