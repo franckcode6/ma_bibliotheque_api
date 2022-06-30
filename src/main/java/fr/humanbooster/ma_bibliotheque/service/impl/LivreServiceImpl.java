@@ -20,4 +20,14 @@ public class LivreServiceImpl implements LivreService {
 		return livreDao.findAll();
 	}
 
+	@Override
+	public Livre recupererLivre(Long id) {
+		return livreDao.findById(id).orElse(null);
+	}
+
+	@Override
+	public Livre ajouterLivre(Livre livre) {
+		return livreDao.save(livre);
+	}
+
 }

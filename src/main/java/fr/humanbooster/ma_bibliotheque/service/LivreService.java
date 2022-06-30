@@ -8,4 +8,8 @@ public interface LivreService {
 
 	List<Livre> recupererLivres();
 
+	Livre recupererLivre(Long id);
+
+	Livre ajouterLivre(Livre livre);
+
 }
