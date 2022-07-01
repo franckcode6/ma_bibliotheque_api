@@ -1,6 +1,6 @@
 package fr.humanbooster.ma_bibliotheque.business;
 
-import java.util.*;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,9 +28,9 @@ public class Type {
 	@NotBlank
 	private String nom;
 
-	@JsonBackReference
+	@JsonIgnore
 	@OneToMany(mappedBy = "type")
-	private Set<Livre> livres;
+	private List<Livre> livres;
 
 	public Type(String nom) {
 		this.nom = nom;

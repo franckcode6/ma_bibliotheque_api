@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,7 +28,7 @@ public class Editeur {
 	@NotBlank
 	private String nom;
 
-	@JsonBackReference
+	@JsonIgnore
 	@OneToMany(mappedBy = "editeur")
 	private List<Livre> livres;
 

@@ -35,7 +35,7 @@ public class LivreRestController {
 		return livreService.recupererLivre(id);
 	}
 
-	@PostMapping(value = "avis")
+	@PostMapping(value = "livres")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public Livre livrePost(@RequestBody Livre livre) {
 		return livreService.ajouterLivre(livre);
