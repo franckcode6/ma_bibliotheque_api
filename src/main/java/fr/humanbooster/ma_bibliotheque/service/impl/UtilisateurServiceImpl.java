@@ -21,6 +21,10 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 	public List<Utilisateur> recupererUtilisateurs() {
 		return utilisateurDao.findAll();
 	}
+	
+	public Utilisateur recupererUtilisateurParEmail(String email) {
+		return utilisateurDao.findByEmail(email);
+	}
 
 	@Override
 	public Lecteur ajouterLecteur(Lecteur lecteur) {

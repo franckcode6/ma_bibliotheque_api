@@ -11,4 +11,6 @@ public interface UtilisateurService {
 
 	Lecteur ajouterLecteur(Lecteur lecteur);
 
+	Utilisateur recupererUtilisateurParEmail(String email);
+
 }

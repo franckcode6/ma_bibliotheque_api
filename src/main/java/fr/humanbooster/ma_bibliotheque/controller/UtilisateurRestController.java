@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,11 @@ public class UtilisateurRestController {
 	@GetMapping(value = "utilisateurs", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Utilisateur> utilisateursGetAll() {
 		return utilisateurService.recupererUtilisateurs();
+	}
+	
+	@GetMapping("utilisateur/{email}")
+	public Utilisateur utilisateurGetByEmail(@PathVariable final String email) {
+		return utilisateurService.recupererUtilisateurParEmail(email);
 	}
 	
 	@PostMapping(value = "utilisateurs")
