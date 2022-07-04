@@ -31,7 +31,7 @@ public class UtilisateurRestController {
 		return utilisateurService.recupererUtilisateurs();
 	}
 	
-	@GetMapping("utilisateur/{email}")
+	@GetMapping("utilisateurs/{email}")
 	public Utilisateur utilisateurGetByEmail(@PathVariable final String email) {
 		return utilisateurService.recupererUtilisateurParEmail(email);
 	}
