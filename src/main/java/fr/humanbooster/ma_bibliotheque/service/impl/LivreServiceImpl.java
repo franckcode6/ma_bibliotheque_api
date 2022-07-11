@@ -30,4 +30,9 @@ public class LivreServiceImpl implements LivreService {
 		return livreDao.save(livre);
 	}
 
+	@Override
+	public void supprimerLivre(Long id) {
+		livreDao.deleteById(id);
+	}
+
 }

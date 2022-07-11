@@ -13,4 +13,6 @@ public interface UtilisateurService {
 
 	Utilisateur recupererUtilisateurParEmail(String email);
 
+	void supprimerUtilisateur(Long id);
+
 }

@@ -31,4 +31,9 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 		return lecteurDao.save(lecteur);
 	}
 
+	@Override
+	public void supprimerUtilisateur(Long id) {
+		utilisateurDao.deleteById(id);
+	}
+
 }

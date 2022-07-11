@@ -12,4 +12,6 @@ public interface LivreService {
 
 	Livre ajouterLivre(Livre livre);
 
+	void supprimerLivre(Long id);
+
 }
